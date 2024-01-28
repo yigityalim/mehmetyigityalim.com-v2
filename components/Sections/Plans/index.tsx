@@ -11,7 +11,7 @@ export default function PlansSection(): React.ReactElement {
             <Carousel>
                 <CarouselContent>
                     {plans.map((plan) => (
-                        <CarouselItem key={randomBytes(4).toString('hex')}>
+                        <CarouselItem key={plan.name}>
                             <PlanCard plan={plan} />
                         </CarouselItem>
                     ))}
