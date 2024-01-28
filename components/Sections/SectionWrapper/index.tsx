@@ -15,12 +15,12 @@ const SectionWrapper = React.forwardRef(
         return (
             <Component
                 id={id}
-                className={cn('z-40 mt-6 flex h-dvh snap-start flex-col items-center justify-start', className)}
+                className={cn('z-40 mt-6 flex h-dvh snap-start flex-col items-center justify-start pb-4', className)}
                 ref={ref}
                 {...props}
             >
                 {title && (
-                    <h1 className='sticky top-12 z-[101] w-full bg-white bg-opacity-50 p-3 pl-0 text-end text-6xl font-bold tracking-wide backdrop-blur-3xl dark:bg-[#121212]'>
+                    <h1 className='sticky top-12 z-[101] w-full p-3 pl-0 text-end text-6xl font-bold tracking-wide backdrop-blur-xl'>
                         {title}
                     </h1>
                 )}

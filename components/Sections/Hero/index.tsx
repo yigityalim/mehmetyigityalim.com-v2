@@ -15,7 +15,7 @@ export default function HeroSection(): React.ReactElement {
                     className='z-10 h-full w-full object-cover'
                 />
             </React.Suspense>
-            <h1 className='font-roboto absolute bottom-2 left-0 right-0 z-[53] px-2 text-end font-sans text-6xl font-black text-black dark:text-gray-300 xs:text-8xl phone:text-9xl md:bottom-20'>
+            <h1 className='absolute bottom-2 left-0 right-0 z-[53] px-2 text-end font-sans text-6xl font-black text-black dark:text-gray-300 xs:text-8xl phone:text-9xl md:bottom-20'>
                 Mehmet Yiğit Yalım
             </h1>
             <div className='absolute bottom-0 left-0 right-0 top-1/2 z-[52] bg-gradient-to-t from-white to-transparent dark:from-black' />

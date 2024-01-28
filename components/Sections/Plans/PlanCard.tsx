@@ -9,15 +9,16 @@ import type { Plan } from '@/lib/types/plan'
 
 type planageCardProps = Readonly<{ plan: Plan }>
 
-export function PlanCard({ plan }: planageCardProps): React.ReactElement {
+export function PlanCard({ plan }: planageCardProps) {
     return (
-        <div className='relative min-h-full w-full' key={plan.id}>
-            <SubCard
-                className={plan.color?.backdrop}
-                condition={plan.mostPopular ?? plan.recommended}
-                type='backdrop'
-            />
-            <Card className={cn('relative h-full', (plan.mostPopular || plan.recommended) && plan.color?.border)}>
+        <div className='relative h-full w-full' key={plan.id}>
+            <SubCard className={plan.color.backdrop} condition={plan.mostPopular ?? plan.recommended} type='backdrop' />
+            <Card
+                className={cn(
+                    'relative flex min-h-full flex-col items-start justify-between',
+                    (plan.mostPopular || plan.recommended) && plan.color.border
+                )}
+            >
                 <SubCard
                     text={plan.mostPopular ? 'En Popüler' : 'Önerilen'}
                     condition={plan.mostPopular ?? plan.recommended}
@@ -25,14 +26,14 @@ export function PlanCard({ plan }: planageCardProps): React.ReactElement {
                     className={plan.color?.top}
                 />
                 <CardHeader>
-                    <h1 className={cn('font-poppins text-3xl font-bold', plan.color?.heading)}>{plan.name}</h1>
+                    <h1 className={cn('font-poppins text-3xl font-bold', plan.color.heading)}>{plan.name}</h1>
                     <CardTitle className='font-noto-sans'>
                         {formatPrice(plan.price)}
                         <span className='ml-1 text-xs text-gray-500 dark:text-gray-400'>ort.</span>
                     </CardTitle>
                     <CardDescription className='text-xs'>{plan?.description}</CardDescription>
                 </CardHeader>
-                <CardContent className='flex flex-col items-center justify-start gap-y-2'>
+                <CardContent className='flex w-full flex-col items-center justify-start gap-y-2'>
                     <SubCard
                         text={`${plan.pageNumbers.page} Sayfa`}
                         condition={plan.pageNumbers.page > 1}
@@ -47,7 +48,7 @@ export function PlanCard({ plan }: planageCardProps): React.ReactElement {
                         <HoverCardTrigger className='hidden w-full cursor-pointer'>
                             <SubCard
                                 text={plan.framework.find((fw) => fw.index)?.name}
-                                condition={Boolean(plan.framework)}
+                                condition={!!plan.framework}
                                 type='feature'
                             />
                         </HoverCardTrigger>
@@ -68,11 +69,14 @@ export function PlanCard({ plan }: planageCardProps): React.ReactElement {
                     <SubCard text='Çoklu Dil Desteği' condition={plan.optionals.i18n.has} type='feature' />
                 </CardContent>
                 <CardFooter
-                    className={cn('mt-auto', plan.button.length === 1 ? 'justify-center' : 'justify-between gap-x-2')}
+                    className={cn(
+                        'mt-auto w-full',
+                        plan.button.length === 1 ? 'justify-center' : 'justify-between gap-x-2'
+                    )}
                 >
                     {plan.button.map(({ colorVariant, supPage, href, text }) => (
                         <Button
-                            key={crypto.randomUUID().toString()}
+                            key={href}
                             className='w-full gap-x-2 shadow-2xl'
                             variant={colorVariant}
                             size='sm'
@@ -89,18 +93,16 @@ export function PlanCard({ plan }: planageCardProps): React.ReactElement {
     )
 }
 
-type ValueOrUndefined<T> = T | undefined
-type Nullable<T> = T | null
 type SubCardProps = {
     text?: string
     condition?: boolean
-    type?: ValueOrUndefined<'feature' | 'backdrop' | 'top'>
+    type?: 'feature' | 'backdrop' | 'top' | undefined
     className?: string
 }
 
-export function SubCard({ text, condition, type, className }: SubCardProps): Nullable<React.ReactElement> {
+export async function SubCard({ text, condition, type, className }: SubCardProps) {
     const classNames: string = cn(className, {
-        'absolute -inset-0.5 rounded-lg opacity-75 animate-tilt blur transition duration-1000 group-hover:opacity-100':
+        'absolute -inset-0.5 rounded-lg opacity-75 blur transition duration-1000 group-hover:opacity-100':
             type === 'backdrop',
         'absolute -top-4 left-1/2 -translate-x-1/2 rounded-md border px-2 py-1 font-semibold': type === 'top',
         'inline-flex w-full flex-row items-center justify-start gap-x-2': type === 'feature',

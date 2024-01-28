@@ -21,7 +21,7 @@ export interface Plan {
     optionals: Optionals
     mostPopular?: boolean
     recommended?: boolean
-    color?: Color
+    color: Color
     button: Array<Button>
 }
 
@@ -67,12 +67,11 @@ export type Button = {
 
 export type Color = {
     heading: string
-    backdrop?: string
-    border?: string
-    top?: string
-    icon?: string
-    button?: string
-    addPrice?: string
+    backdrop: string
+    border: string
+    top: string
+    button: string
+    addPrice: string
 }
 
 export type OptionPrices = {

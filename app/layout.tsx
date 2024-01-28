@@ -1,18 +1,11 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Roboto } from 'next/font/google'
+import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 
 import Provider from '@/components/Providers'
 import BackgrounImage from '@/components/BackgrounImage'
 import { cn } from '@/lib/utils'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const roboto = Roboto({
-    subsets: ['latin'],
-    variable: '--font-roboto',
-    weight: ['100', '300', '400', '500', '700', '900'],
-})
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -30,7 +23,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: Readonly<React.PropsWithChildren>): Promise<React.ReactElement> {
     return (
         <html lang='en' suppressHydrationWarning>
-            <body className={cn(inter.variable, roboto.variable)}>
+            <body className={cn(GeistSans.className)}>
                 <Provider attribute='class' defaultTheme='system' enableSystem>
                     <BackgrounImage />
                     {children}

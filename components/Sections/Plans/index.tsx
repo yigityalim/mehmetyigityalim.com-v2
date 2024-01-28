@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { plans } from '@/lib/plans'
 import { PlanCard } from './PlanCard'
 
-export default function PlansSection(): React.ReactElement {
+export default function PlansSection() {
     return (
         <SectionWrapper id='plans' title='Planlar'>
             <Carousel>
@@ -15,8 +15,6 @@ export default function PlansSection(): React.ReactElement {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselNext />
-                <CarouselPrevious />
             </Carousel>
         </SectionWrapper>
     )
