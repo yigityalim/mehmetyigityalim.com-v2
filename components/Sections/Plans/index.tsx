@@ -3,7 +3,6 @@ import SectionWrapper from '@/components/Sections/SectionWrapper'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { plans } from '@/lib/plans'
 import { PlanCard } from './PlanCard'
-import { randomBytes } from 'crypto'
 
 export default function PlansSection(): React.ReactElement {
     return (
