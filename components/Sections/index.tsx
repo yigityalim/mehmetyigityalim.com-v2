@@ -15,6 +15,7 @@ export default function Sections(): React.ReactElement {
             <NavigationSection />
             <ContactSection />
             <PlansSection />
+            <ReferencesSection />
             <BlogSection />
             <Footer />
         </main>
@@ -22,6 +23,5 @@ export default function Sections(): React.ReactElement {
 }
 /*
 
-            <ReferencesSection />
             <ProjectSection />
             */
