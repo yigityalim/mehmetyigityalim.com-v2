@@ -61,7 +61,7 @@ export function VercelProject({ projects }: Readonly<VercelProjectProps>): React
                                     project.latestDeployments[0].readyState === 'QUEUED' && 'bg-[#f5a623]',
                                     project.latestDeployments[0].readyState === 'CANCELED' && 'bg-red-300'
                                 )}
-                            ></span>
+                            />
                             {frameworkIcon ? (
                                 <div className='size-6'>{frameworkIcon}</div>
                             ) : (

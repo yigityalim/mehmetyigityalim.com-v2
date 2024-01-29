@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function HeroSection(): React.ReactElement {
     return (
-        <SectionWrapper className='mt-0 bg-black md:mt-16'>
+        <SectionWrapper className='mt-0 dark:bg-black md:mt-16'>
             <React.Suspense fallback={<div>Loading...</div>}>
                 <Image
                     src='/hero.PNG'

@@ -210,6 +210,6 @@ export default [
 ] as Frameworks[]
 
 type Frameworks = {
-    framework: VercelProject['projects'][0]['framework']
+    framework: VercelProject['projects'][number]['framework']
     icon: React.ReactNode
 }

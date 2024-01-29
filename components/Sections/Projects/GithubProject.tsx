@@ -84,7 +84,9 @@ export function GithubProject({ repo }: GithubProjectProps): React.JSX.Element {
                                     {language}
                                 </Badge>
                             )}
-                            <Badge className='hidden md:flex'>{fns.format(new Date(created_at), 'dd.MM.yy')}</Badge>
+                            <Badge className='hidden md:flex'>
+                                {new Intl.DateTimeFormat('tr-TR').format(new Date(created_at))}
+                            </Badge>
                         </div>
                     </a>
                 </motion.div>
