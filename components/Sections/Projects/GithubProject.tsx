@@ -3,7 +3,7 @@ import React from 'react'
 import { motion, Variants } from 'framer-motion'
 import { GithubRepositoryType } from '@/lib/types/github'
 import { Badge } from '@/components/ui/badge'
-import { format } from 'date-fns'
+import * as fns from 'date-fns'
 import { textColorForBackground } from '@/lib/utils'
 
 const containerVariants: Variants = {
@@ -84,7 +84,7 @@ export function GithubProject({ repo }: GithubProjectProps): React.JSX.Element {
                                     {language}
                                 </Badge>
                             )}
-                            <Badge className='hidden md:flex'>{format(new Date(created_at), 'dd.MM.yy')}</Badge>
+                            <Badge className='hidden md:flex'>{fns.format(new Date(created_at), 'dd.MM.yy')}</Badge>
                         </div>
                     </a>
                 </motion.div>

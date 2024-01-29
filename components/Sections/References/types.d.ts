@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 export interface Reference {
-    id: number
+    id: string
     name: string
     url: string
     icon?: ReactNode

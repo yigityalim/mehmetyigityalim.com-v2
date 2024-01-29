@@ -2,7 +2,7 @@ import { Reference } from '@/components/Sections/References/types'
 
 const references = [
     {
-        id: crypto.getRandomValues(new Uint32Array(1))[0],
+        id: 'sisa',
         name: 'SisaSoft Bilgi Teknolojileri & İnovasyon A.Ş.',
         url: 'https://sisasoft.com',
         tags: ['JavaScript', 'UI', 'AngularJS', 'TypeScript'],
@@ -323,7 +323,7 @@ const references = [
         ),
     },
     {
-        id: crypto.getRandomValues(new Uint32Array(1))[0],
+        id: 'yenimahalle',
         name: 'Yenimahalle Belediyesi',
         url: 'https://yenimahalle.bel.tr/',
         tags: ['Donanım', 'Bilgi İşlem', 'Devlet Kurumu'],
