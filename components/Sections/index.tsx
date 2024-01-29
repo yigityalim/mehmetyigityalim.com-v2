@@ -14,11 +14,14 @@ export default function Sections(): React.ReactElement {
             <HeroSection />
             <NavigationSection />
             <ContactSection />
-            <PlansSection />
-            <ReferencesSection />
-            <ProjectSection />
             <BlogSection />
             <Footer />
         </main>
     )
 }
+/*
+
+            <PlansSection />
+            <ReferencesSection />
+            <ProjectSection />
+            */
