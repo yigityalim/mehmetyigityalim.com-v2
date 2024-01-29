@@ -44,13 +44,6 @@ export const plans: Plan[] = [
             dns: { cost: 0, has: false },
             i18n: { cost: 0, has: false },
         },
-        color: {
-            heading: '',
-            backdrop: '',
-            border: '',
-            top: '',
-            addPrice: 'text-white bg-zinc-500 dark:bg-zinc-700 dark:text-zinc-300',
-        },
         button: [
             {
                 border: false,
@@ -106,14 +99,6 @@ export const plans: Plan[] = [
             dns: { cost: 0, has: true },
             i18n: { cost: 0, has: true },
         },
-        color: {
-            heading: 'text-indigo-500 dark:text-indigo-600',
-            backdrop: 'bg-gradient-to-r from-pink-900 to-purple-600',
-            border: 'z-30 border-2 border-indigo-500 dark:border-indigo-700',
-            top: 'border-indigo-400 text-indigo-400 dark:border-indigo-700 bg-zinc-100 dark:bg-zinc-950 dark:text-indigo-600',
-            button: 'destructive',
-            addPrice: 'text-white bg-indigo-500 dark:bg-indigo-700 dark:text-indigo-300',
-        },
         mostPopular: true,
         button: [
             {
@@ -164,20 +149,12 @@ export const plans: Plan[] = [
             dns: { cost: 1000, has: true },
             i18n: { cost: 2000, has: true },
         },
-        color: {
-            heading: 'text-red-500 dark:text-red-600',
-            backdrop: 'bg-gradient-to-r from-red-900 to-yellow-800',
-            border: 'z-30 border-2 border-red-500 dark:border-red-700',
-            top: 'border-red-500 text-red-500 dark:border-red-700 dark:bg-zinc-950 bg-zinc-100 dark:text-red-600',
-            button: 'indigo',
-            addPrice: 'text-white bg-red-500 dark:bg-red-700 dark:text-red-300',
-        },
         recommended: true,
         button: [
             {
                 border: true,
                 text: 'Destek Al',
-                href: 'contact',
+                href: '#contact',
                 supPage: true as boolean,
                 colorVariant: 'default',
             },

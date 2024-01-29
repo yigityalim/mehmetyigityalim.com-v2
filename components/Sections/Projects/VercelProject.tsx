@@ -34,7 +34,7 @@ export function VercelProject({ projects }: Readonly<VercelProjectProps>): React
             variants={containerVariants}
             initial='hidden'
             animate='visible'
-            className='flex w-full flex-col items-center justify-center gap-y-4'
+            className='ml-2 flex w-full flex-col items-center justify-center gap-y-4'
         >
             {projects.projects.map((project) => {
                 const frameworkInfo = frameworks.find((fw) => fw.framework === project.framework)
@@ -62,7 +62,11 @@ export function VercelProject({ projects }: Readonly<VercelProjectProps>): React
                                     project.latestDeployments[0].readyState === 'CANCELED' && 'bg-red-300'
                                 )}
                             ></span>
-                            {frameworkIcon && <div className='h-6 w-6'>{frameworkIcon}</div>}
+                            {frameworkIcon ? (
+                                <div className='size-6'>{frameworkIcon}</div>
+                            ) : (
+                                <span className='size-6' />
+                            )}
                         </div>
                     </motion.a>
                 )

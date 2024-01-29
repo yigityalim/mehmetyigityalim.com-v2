@@ -2,7 +2,9 @@
 import React from 'react'
 import { motion, Variants } from 'framer-motion'
 import { GithubRepositoryType } from '@/lib/types/github'
+import { Badge } from '@/components/ui/badge'
 import { format } from 'date-fns'
+import { textColorForBackground } from '@/lib/utils'
 
 const containerVariants: Variants = {
     hidden: {
@@ -33,7 +35,7 @@ export let languagesColors = {
     C: '#A8B9CC',
     Java: '#B07219',
     Python: '#3572A5',
-} as const
+} as { [key: string]: string }
 
 type GithubProjectProps = Readonly<{
     repo: GithubRepositoryType[]
@@ -72,8 +74,17 @@ export function GithubProject({ repo }: GithubProjectProps): React.JSX.Element {
                             {name}
                         </span>
                         <div className='flex flex-row items-center justify-center gap-x-2'>
-                            {language && <div>{language}</div>}
-                            <div className='hidden md:flex'>{format(new Date(created_at), 'dd.MM.yy')}</div>
+                            {language && (
+                                <Badge
+                                    style={{
+                                        backgroundColor: languagesColors[language] ?? null,
+                                        color: textColorForBackground(languagesColors[language] ?? null),
+                                    }}
+                                >
+                                    {language}
+                                </Badge>
+                            )}
+                            <Badge className='hidden md:flex'>{format(new Date(created_at), 'dd.MM.yy')}</Badge>
                         </div>
                     </a>
                 </motion.div>
@@ -81,9 +92,3 @@ export function GithubProject({ repo }: GithubProjectProps): React.JSX.Element {
         </motion.div>
     )
 }
-
-/*
-<span className='absolute -right-2 -top-2 z-[100] rounded-full border-2 border-white bg-white dark:border-black dark:bg-black'>
-    <ArrowRight className='h-4 w-4 -rotate-45 fill-black dark:fill-white' />
-</span>
- */

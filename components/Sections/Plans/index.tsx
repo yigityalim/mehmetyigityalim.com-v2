@@ -4,10 +4,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { plans } from '@/lib/plans'
 import { PlanCard } from './PlanCard'
 
-export default function PlansSection() {
+export default async function PlansSection(): Promise<React.ReactElement> {
     return (
-        <SectionWrapper id='plans' title='Planlar'>
-            <Carousel>
+        <SectionWrapper id='plans' title='Planlar' className='no-scrollbar'>
+            <Carousel className='pb-6'>
                 <CarouselContent>
                     {plans.map((plan) => (
                         <CarouselItem key={plan.name}>
